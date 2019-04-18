@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirlinesApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190415082956_InitialCreate")]
+    [Migration("20190418084837_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -137,6 +137,8 @@ namespace AirlinesApp.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<string>("RoleId");
+
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -145,7 +147,25 @@ namespace AirlinesApp.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConcurrencyStamp");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("NormalizedName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IdentityRole");
                 });
 
             modelBuilder.Entity("AirlinesApp.Domain.Airplane", b =>
@@ -168,6 +188,13 @@ namespace AirlinesApp.Migrations
                     b.HasOne("AirlinesApp.Domain.Airport", "ToAirport")
                         .WithMany()
                         .HasForeignKey("ToAirportId");
+                });
+
+            modelBuilder.Entity("AirlinesApp.Domain.User", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId");
                 });
 #pragma warning restore 612, 618
         }

@@ -22,7 +22,7 @@ namespace AirlinesApp
                 var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
                 context.Database.Migrate();
             }
-            //EnsureDataSeed(host);
+            EnsureDataSeed(host);
             host.Run();
         }
 
@@ -30,7 +30,6 @@ namespace AirlinesApp
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
 
-        /*
          private static void EnsureDataSeed(IWebHost host)
         {
             using (var serviceScope = host.Services.CreateScope())
@@ -47,12 +46,11 @@ namespace AirlinesApp
                 }
                 catch (Exception exc)
                 {
-                    var Logger = LoggerFactory.GetLogger<Program>();
-                    Logger.Exception(exc, "An error occurred during ensuring intial data.");
+                    throw;
                 }
             }
         }
-        */
+      
 
 
     }
