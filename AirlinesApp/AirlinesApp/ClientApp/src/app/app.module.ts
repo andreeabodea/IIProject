@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { AppNavigationComponent } from './app-navigation/app-navigation.component';
 import { AirlinesDetailsComponent } from './airlines-details/airlines-details.component';
 import { FlightHistoryComponent } from './flight-history/flight-history.component';
+import { ManageFlightsComponent } from './manage-flights/manage-flights.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavigationComponent,
     AirlinesDetailsComponent,
-    FlightHistoryComponent
+    FlightHistoryComponent,
+    ManageFlightsComponent
   ],
   imports: [
     BrowserModule,
