@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppNavigationComponent } from './app-navigation/app-navigation.component';
 import { AirlinesDetailsComponent } from './airlines-details/airlines-details.component';
+import { FlightHistoryComponent } from './flight-history/flight-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavigationComponent,
-    AirlinesDetailsComponent
+    AirlinesDetailsComponent,
+    FlightHistoryComponent
   ],
   imports: [
     BrowserModule,
