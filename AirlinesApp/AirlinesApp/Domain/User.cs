@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AirlinesApp.Domain
 {
-    public class User : IdentityUser
+    public class User 
     {
-        public string FirstName { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-        public string LastName { get; set; }
+        public string UserName { get; set; }
 
-        public IdentityRole Role { get; set; }
+        public string Password { get; set; }
     }
 }
