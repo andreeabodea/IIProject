@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AirlinesService } from '../services/airlines.service';
 
 @Component({
   selector: 'app-airlines-details',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AirlinesDetailsComponent implements OnInit {
 
-  constructor() { }
+  private airlines;
+
+  constructor(private airlinesService: AirlinesService) { }
 
   ngOnInit() {
   }
 
+
+  getAirlines() {
+    this.airlinesService.getAirlines().subscribe((airlinesParam: any) => {
+      this.airlines = airlinesParam;
+    });
+  }
 }
