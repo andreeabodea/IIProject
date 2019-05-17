@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +32,8 @@ import { AirlinesService } from './services/airlines.service';
     MatToolbarModule,
     BrowserAnimationsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [AirlinesService],
   bootstrap: [AppComponent]

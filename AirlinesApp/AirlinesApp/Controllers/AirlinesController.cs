@@ -21,13 +21,13 @@ namespace AirlinesApp.Controllers
 
         [HttpGet]
         [Route("airlines")]
-        public IActionResult GetConfiguration()
+        public IActionResult GetAirlines() 
         {
             //Logger.Enter();
 
             try
             {
-                IList<Airline> airlines = appDbContext.Airlines.Select(al => al).OrderBy(al => al.Name).ToList();
+                IList<Airline> airlines = appDbContext.Airlines.Select(al => al).OrderBy(al => al.Id).ToList();
 
                 return new ObjectResult(airlines)
                 {

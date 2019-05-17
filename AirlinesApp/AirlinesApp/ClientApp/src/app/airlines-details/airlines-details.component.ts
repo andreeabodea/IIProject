@@ -13,12 +13,10 @@ export class AirlinesDetailsComponent implements OnInit {
   constructor(private airlinesService: AirlinesService) { }
 
   ngOnInit() {
-  }
-
-
-  getAirlines() {
     this.airlinesService.getAirlines().subscribe((airlinesParam: any) => {
       this.airlines = airlinesParam;
     });
   }
+
+
 }
