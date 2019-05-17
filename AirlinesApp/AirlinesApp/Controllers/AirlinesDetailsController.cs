@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AirlinesApp.Controllers
 {
-    public class AirlinesController : Controller
+    public class AirlinesDetailsController : Controller
     {
         private readonly AppDbContext appDbContext;
 
-        public AirlinesController(AppDbContext appDbContextParam)
+        public AirlinesDetailsController(AppDbContext appDbContextParam)
         {
             appDbContext = appDbContextParam;
         }
@@ -23,8 +23,6 @@ namespace AirlinesApp.Controllers
         [Route("airlines")]
         public IActionResult GetAirlines() 
         {
-            //Logger.Enter();
-
             try
             {
                 IList<Airline> airlines = appDbContext.Airlines.Select(al => al).OrderBy(al => al.Id).ToList();
@@ -36,7 +34,6 @@ namespace AirlinesApp.Controllers
             }
             catch (Exception exc)
             {
-                //Logger.Exception(exc, "Error occurred during retrieving configurations.");
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }

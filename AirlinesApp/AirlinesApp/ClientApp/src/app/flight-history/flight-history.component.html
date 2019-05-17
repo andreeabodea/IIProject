@@ -1,3 +1,37 @@
-<p>
-  flight-history works!
-</p>
+<div class="report-container">
+  <mat-card>
+    <mat-card-content>
+
+      <form [formGroup]="filterForm">
+
+        <mat-form-field class="filterItem">
+          <mat-label>Airlines</mat-label>
+          <mat-select formControlName="airlines">
+            <mat-option *ngFor="let airline of airlinesList" [value]="airline.id">
+              {{airline.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="filterItem">
+          <mat-label>Airports</mat-label>
+          <mat-select formControlName="airports">
+            <mat-option *ngFor="let airport of airportsList" [value]="airport.id">
+              {{airport.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <span class="filterItem">
+          <button mat-raised-button color="primary" [disabled]="filterForm.invalid" (click)="search()">Filtreaza</button>
+        </span>
+
+      </form>
+
+
+      <div class="delimiterLine"></div>
+
+
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -4,9 +4,12 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 
-import { MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +19,7 @@ import { AirlinesDetailsComponent } from './airlines-details/airlines-details.co
 import { FlightHistoryComponent } from './flight-history/flight-history.component';
 import { ManageFlightsComponent } from './manage-flights/manage-flights.component';
 import { AirlinesService } from './services/airlines.service';
+import { HistoryService } from './services/history.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +37,16 @@ import { AirlinesService } from './services/airlines.service';
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSelectModule
   ],
-  providers: [AirlinesService],
+  providers: [AirlinesService, HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -34,6 +34,7 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\services\airlines.service.ts" />
     <None Remove="ClientApp\src\app\services\base.service.ts" />
+    <None Remove="ClientApp\src\app\services\history.service.ts" />
     <None Remove="ClientApp\src\app\services\restCallHeaders.class.ts" />
   </ItemGroup>
 
@@ -44,6 +45,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\services\base.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\airlines.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\history.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\restCallHeaders.class.ts" />
   </ItemGroup>
 
