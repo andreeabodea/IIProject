@@ -77,6 +77,9 @@ namespace AirlinesApp.Db
             Flight f13 = AddFlightToDbContext("F9765", ap13, ai4, ai5, 110);
             Flight f14 = AddFlightToDbContext("F2235", ap14, ai1, ai7, 120);
             Flight f15 = AddFlightToDbContext("F7532", ap15, ai4, ai7, 90);
+            Flight f16 = AddFlightToDbContext("F9676", ap2, ai4, ai5, 110);
+            Flight f17 = AddFlightToDbContext("F2344", ap1, ai4, ai7, 120);
+            Flight f18 = AddFlightToDbContext("F3476", ap3, ai4, ai7, 90);
 
             appDbContext.SaveChanges();
         }

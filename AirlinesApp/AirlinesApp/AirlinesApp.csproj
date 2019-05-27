@@ -32,8 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\flight-history\flight-history.class.ts" />
     <None Remove="ClientApp\src\app\services\airlines.service.ts" />
     <None Remove="ClientApp\src\app\services\base.service.ts" />
+    <None Remove="ClientApp\src\app\services\history-search-params.class.ts" />
     <None Remove="ClientApp\src\app\services\history.service.ts" />
     <None Remove="ClientApp\src\app\services\restCallHeaders.class.ts" />
   </ItemGroup>
@@ -43,8 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\flight-history\flight-history.class.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\base.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\airlines.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\history-search-params.class.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\history.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\restCallHeaders.class.ts" />
   </ItemGroup>

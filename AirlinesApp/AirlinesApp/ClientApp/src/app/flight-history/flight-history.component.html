@@ -32,6 +32,40 @@
       <div class="delimiterLine"></div>
 
 
+
+
+      <table mat-table matSort [dataSource]="flightHistory" class="historyTable">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef class="historyTableTh">Flight name</th>
+          <td mat-cell *matCellDef="let element" class="historyTableTd"> {{ element.name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef class="historyTableTh">Flight duration</th>
+          <td mat-cell *matCellDef="let element" class="historyTableTd"> {{ element.duration }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="airplane">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef class="historyTableTh">Airplane</th>
+          <td mat-cell *matCellDef="let element" class="historyTableTd"> {{ element.airplane.name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fromAirport">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef class="historyTableTh">From airport</th>
+          <td mat-cell *matCellDef="let element" class="historyTableTd"> {{ element.fromAirport.name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="toAirport">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef class="historyTableTh">To airport</th>
+          <td mat-cell *matCellDef="let element" class="historyTableTd">{{ element.toAirport.name }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+      </table>
+
+
     </mat-card-content>
   </mat-card>
 </div>

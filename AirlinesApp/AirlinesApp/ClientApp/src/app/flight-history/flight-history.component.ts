@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from '../services/history.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { HistoryServiceSearchParameters } from '../services/history-search-params.class';
+import { FlightHistory } from './flight-history.class';
 
 @Component({
   selector: 'app-flight-history',
@@ -11,7 +13,8 @@ export class FlightHistoryComponent implements OnInit {
   public filterForm: FormGroup;
   airportsList = [];
   airlinesList = [];
-
+  flightHistory : FlightHistory;
+  public columnsToDisplay = ['name', 'duration', 'airplane', 'fromAirport', 'toAirport'];
 
   constructor(private historyService: HistoryService,
               private fb: FormBuilder) {
@@ -32,10 +35,18 @@ export class FlightHistoryComponent implements OnInit {
   }
 
   search() {
-    //id pt filtrare
-    this.filterForm.controls.airlines.value;
-    this.filterForm.controls.airports.value;
+
+    let searchParams = new HistoryServiceSearchParameters(
+      this.filterForm.controls.airlines.value,
+      this.filterForm.controls.airports.value
+    );
+
+    this.historyService.getHistory(searchParams).subscribe((flightHistoryParam: FlightHistory) => {
+      this.flightHistory = flightHistoryParam;
+    });
+    
   }
- 
+
+
 
 }

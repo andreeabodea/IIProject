@@ -2,6 +2,7 @@
 using AirlinesApp.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace AirlinesApp.Controllers
     public class HistoryController : Controller
     {
         private readonly AppDbContext appDbContext;
+
+        private FlightQueryParams flightQueryParamas; 
 
         public HistoryController(AppDbContext appDbContextParam)
         {
@@ -54,6 +57,35 @@ namespace AirlinesApp.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
+
+
+        [HttpGet]
+        [Route("historyList")]
+        public IActionResult GetFlights()
+        {
+            try
+            {
+                flightQueryParamas = new FlightQueryParams(HttpContext);
+
+                IList<Flight> flights = appDbContext.Flights.Select(f => f)
+                    .Include( f=> f.Airplane)
+                    .Include( f=> f.ToAirport)
+                    .Include ( f=> f.FromAirport)
+                    .Where(f => f.Airplane.Airline.Id == flightQueryParamas.Airline && f.FromAirport.Id == flightQueryParamas.Airport)
+                    .OrderBy(f => f.Name).ToList();
+
+                return new ObjectResult(flights)
+                {
+                    StatusCode = StatusCodes.Status200OK
+                };
+            }
+            catch (Exception exc)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
 
     }
 }
