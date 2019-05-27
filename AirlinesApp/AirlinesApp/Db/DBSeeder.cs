@@ -104,6 +104,32 @@ namespace AirlinesApp.Db
             Flight f34 = AddFlightToDbContext("F99h6", ap12, ai3, ai4, 110);
             Flight f35 = AddFlightToDbContext("F9044", ap12, ai4, ai2, 120);
 
+            Flight f41 = AddFlightToDbContext("F5346", ap1, ai1, ai4, 50);
+            Flight f62 = AddFlightToDbContext("F6e76", ap1, ai4, ai5, 33);
+            Flight f63 = AddFlightToDbContext("F27h5", ap1, ai3, ai2, 120);
+            Flight f54 = AddFlightToDbContext("F8hh2", ap1, ai4, ai1, 45);
+            Flight f55 = AddFlightToDbContext("F33f5", ap1, ai5, ai4, 57);
+            Flight f66 = AddFlightToDbContext("F09v3", ap2, ai1, ai2, 80);
+            Flight f67 = AddFlightToDbContext("F5fg", ap2, ai2, ai3, 24);
+            Flight f68 = AddFlightToDbContext("Fff34", ap2, ai3, ai1, 78);
+            Flight f69 = AddFlightToDbContext("F4u8i", ap2, ai4, ai2, 188);
+            Flight f59 = AddFlightToDbContext("F4662", ap2, ai5, ai4, 178);
+            Flight f89 = AddFlightToDbContext("F4u8i", ap2, ai4, ai2, 16);
+            Flight f88 = AddFlightToDbContext("F4662", ap2, ai5, ai1, 134);
+            Flight f60 = AddFlightToDbContext("F1yh4", ap3, ai1, ai2, 47);
+            Flight f71 = AddFlightToDbContext("Fhu72", ap3, ai2, ai4, 76);
+            Flight f72 = AddFlightToDbContext("F4673", ap3, ai3, ai4, 89);
+            Flight f73 = AddFlightToDbContext("F9455", ap3, ai4, ai1, 160);
+            Flight f83 = AddFlightToDbContext("F3gg5", ap3, ai5, ai2, 117);
+            Flight f74 = AddFlightToDbContext("F256h", ap4, ai1, ai5, 120);
+            Flight f75 = AddFlightToDbContext("F649a", ap4, ai2, ai1, 90);
+            Flight f76 = AddFlightToDbContext("F9df7", ap4, ai3, ai4, 110);
+            Flight f77 = AddFlightToDbContext("F2345", ap4, ai4, ai2, 120);
+            Flight f78 = AddFlightToDbContext("F3467", ap5, ai1, ai5, 90);
+            Flight f79 = AddFlightToDbContext("Fh675", ap5, ai2, ai5, 50);
+            Flight f80 = AddFlightToDbContext("F7876", ap5, ai3, ai1, 33);
+            Flight f81 = AddFlightToDbContext("F2ut5", ap5, ai4, ai2, 120);
+
             appDbContext.SaveChanges();
         }
 
