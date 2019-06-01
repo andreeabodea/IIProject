@@ -56,7 +56,8 @@ namespace AirlinesApp.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<string>(nullable: true),
                     IsEnabled = table.Column<bool>(nullable: false),
-                    IsAdmin = table.Column<bool>(nullable: false)
+                    IsAdmin = table.Column<bool>(nullable: false),
+                    DefaultUser = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

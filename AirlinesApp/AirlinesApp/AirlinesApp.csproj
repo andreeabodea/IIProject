@@ -41,6 +41,9 @@
     <None Remove="ClientApp\src\app\services\history-search-params.class.ts" />
     <None Remove="ClientApp\src\app\services\history.service.ts" />
     <None Remove="ClientApp\src\app\services\restCallHeaders.class.ts" />
+    <None Remove="ClientApp\src\app\services\users.service.ts" />
+    <None Remove="ClientApp\src\app\user-upsert\user.class.ts" />
+    <None Remove="ClientApp\src\app\users-list\users.add.user.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +56,9 @@
     <TypeScriptCompile Include="ClientApp\src\app\services\history-search-params.class.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\history.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\restCallHeaders.class.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\users.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\user-upsert\user.class.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\users-list\users.add.user.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

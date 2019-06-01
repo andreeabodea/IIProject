@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 
-import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatIconModule} from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatIconModule, MatTooltipModule, MatCheckboxModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +23,11 @@ import { HistoryService } from './services/history.service';
 import { FlightService } from './services/flight.service';
 import { DialogService } from './services/dialog.service';
 import { MessageBoxComponent } from './message-box/message-box.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { UserUpsertComponent } from './user-upsert/user-upsert.component';
+import { AddUserComponent } from './users-list/users.add.user.component';
+import { UsersService } from './services/users.service';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +36,10 @@ import { MessageBoxComponent } from './message-box/message-box.component';
     AirlinesDetailsComponent,
     FlightHistoryComponent,
     ManageFlightsComponent,
-    MessageBoxComponent
+    MessageBoxComponent,
+    UsersListComponent,
+    UserUpsertComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +58,12 @@ import { MessageBoxComponent } from './message-box/message-box.component';
     MatTableModule,
     MatSelectModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule,
+    MatCheckboxModule 
   ],
-  entryComponents: [MessageBoxComponent],
-  providers: [AirlinesService, HistoryService, FlightService, DialogService],
+  entryComponents: [MessageBoxComponent, UserUpsertComponent],
+  providers: [AirlinesService, HistoryService, FlightService, DialogService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

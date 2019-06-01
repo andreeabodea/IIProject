@@ -1,0 +1,108 @@
+@button-width: 126px;
+@button-height: 45px;
+@small-button-width: 80px;
+@iframe-border: none;
+@small-iframe-width: 100%;
+@label-font-weight: 500;
+@label-font-size: 20px;
+@small-label-font-weight: 200;
+@small-label-font-size: 15px;
+
+@large-medium-screen-width: 900px;
+@medium-screen-width: 700px;
+@small-screen-width: 400px;
+
+@font-family: Roboto, Helvetica, sans-serif;
+
+@disaster-color: rgb(255, 80, 80);
+@warning-color: rgb(255, 215, 140);
+@no-alert-color: rgb(170, 255, 150);
+
+.title {
+  text-align: center;
+  padding: 10px;
+  font-family: @font-family;
+  font-size: 20px;
+}
+
+.text-ellipsis() {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.mat-dialog-content-custom {
+  background-color: rgb(250, 250, 250);
+}
+
+.dialog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 3px 0 3px 0;
+}
+
+.dialog-card-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.dialog-card-separator {
+  width: 40px;
+}
+
+@media screen and (max-width: @medium-screen-width) {
+  .dialog-card-items {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dialog-card-separator {
+    height: 10px;
+  }
+}
+
+.dialog-card-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.dialog-card-element {
+  align-items: center;
+}
+
+.dialog-card-element-input {
+  width: 30%;
+}
+
+@media screen and (max-width: @medium-screen-width) {
+  .dialog-card-element {
+    flex: 1;
+    align-items: center;
+  }
+
+  .dialog-card-element-input {
+    width: 100%;
+  }
+}
+
+
+
+.dialog-card-element-enabled {
+  display: flex;
+}
+
+@media screen and (max-width: @small-screen-width) {
+  mat-dialog-actions {
+    justify-content: center;
+  }
+}
+
+.dialog-form-row {
+  margin-top: 20px;
+}
+
+.dialog-form-error {
+  font-size: 75%;
+}

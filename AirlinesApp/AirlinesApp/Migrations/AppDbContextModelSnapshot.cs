@@ -112,6 +112,8 @@ namespace AirlinesApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("DefaultUser");
+
                     b.Property<bool>("IsAdmin");
 
                     b.Property<bool>("IsEnabled");

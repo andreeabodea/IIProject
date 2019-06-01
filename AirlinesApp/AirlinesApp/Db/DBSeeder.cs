@@ -156,7 +156,7 @@ namespace AirlinesApp.Db
 
         private User AddUserToDbContext(string userid)
         {
-            return appDbContext.User.Add(new User {  UserId= userid , IsAdmin=true, IsEnabled=true}).Entity;
+            return appDbContext.User.Add(new User {  UserId= userid , IsAdmin=true, IsEnabled=true, DefaultUser=true}).Entity;
         }
 
     }

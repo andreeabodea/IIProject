@@ -1,0 +1,42 @@
+<p mat-dialog-title>{{upsertMode === 1 ? 'Add user' : 'Edit user'}}</p>
+<mat-dialog-content class="mat-dialog-content-custom">
+
+  <form [formGroup]="dialogForm">
+    <mat-card class="dialog-card">
+
+      <div class="dialog-card-items">
+        <mat-form-field class="dialog-card-element dialog-card-element-input">
+          <input matInput id="userId" placeholder="UserId" formControlName="userId">
+          <mat-error *ngIf="dialogForm.controls.userId.hasError('required')">
+            Please enter user id.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="dialog-card-separator"></div>
+
+        <div class="dialog-card-row">
+          <div class="dialog-card-element dialog-card-element-enabled">
+            <mat-checkbox formControlName="isEnabled">Activated</mat-checkbox>
+          </div>
+
+          <div class="dialog-card-separator"></div>
+
+          <div class="dialog-card-element dialog-card-element-enabled">
+            <mat-checkbox formControlName="isAdmin">Admin</mat-checkbox>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="errors" class="dialog-form-row dialog-form-error mat-error ng-star-inserted">
+        <strong>Errors occurred: </strong> {{errors}}
+      </div>
+    </mat-card>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" [disabled]="formInvalid()" (click)="save()">Salvare</button>
+  <button mat-raised-button [mat-dialog-close]="cancel">Cancel</button>
+</mat-dialog-actions>
+

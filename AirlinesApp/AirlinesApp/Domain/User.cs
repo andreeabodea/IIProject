@@ -15,5 +15,7 @@ namespace AirlinesApp.Domain
         public bool IsEnabled { get; set; }
 
         public bool IsAdmin { get; set; }
+
+        public bool DefaultUser { get; set; }
     }
 }

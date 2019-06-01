@@ -1,0 +1,68 @@
+@button-width: 126px;
+@button-height: 45px;
+@small-button-width: 80px;
+@iframe-border: none;
+@small-iframe-width: 100%;
+@label-font-weight: 500;
+@label-font-size: 20px;
+@small-label-font-weight: 200;
+@small-label-font-size: 15px;
+
+@large-medium-screen-width: 900px;
+@medium-screen-width: 700px;
+@small-screen-width: 400px;
+
+@font-family: Roboto, Helvetica, sans-serif;
+
+@disaster-color: rgb(255, 80, 80);
+@warning-color: rgb(255, 215, 140);
+@no-alert-color: rgb(170, 255, 150);
+
+@table-width: 80%;
+@medium-table-width: 90%;
+@small-table-width: 95%;
+
+.users-errors {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.users-table-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+app-users-add-user {
+  width: @table-width;
+}
+
+.addButton {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+table {
+  width: 80%;
+}
+
+th.mat-header-cell:first-of-type {
+  width: 57%;
+}
+
+th.mat-header-cell {
+  width: 20%;
+}
+
+th {
+  width: 30%;
+}
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+td.mat-cell:last-of-type {
+  padding-right: 0;
+}
