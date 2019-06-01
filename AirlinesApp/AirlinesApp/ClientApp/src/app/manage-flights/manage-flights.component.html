@@ -1,3 +1,72 @@
-<p>
-  manage-flights works!
-</p>
+
+<form [formGroup]="dialogForm">
+ 
+  <mat-card class="mat-elevation-z8 mat-card-config">
+    <div class="inline-columns">
+      <div class="column">
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Airplane</mat-label>
+            <mat-select formControlName="airplanes">
+              <mat-option *ngFor="let airplane of airplanesList" [value]="airplane.id">
+                {{airplane.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>From Airport</mat-label>
+            <mat-select formControlName="fromairports">
+              <mat-option *ngFor="let airport of airportsList" [value]="airport.id">
+                {{airport.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field>
+            <mat-label>To Airport</mat-label>
+            <mat-select formControlName="toairports">
+              <mat-option *ngFor="let airport of airportsList" [value]="airport.id">
+                {{airport.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <div class="text-field">
+            <mat-form-field>
+              <input type="text" matInput placeholder="Flight name" id="flightNameValue" formControlName="flightName" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="text-field">
+            <mat-form-field>
+              <input type="text" matInput placeholder="Flight duration" id="flightDurationValue" formControlName="flightDuration" />
+              <mat-error *ngIf="dialogForm.controls.flightDuration.hasError('pattern')">
+                Please insert only numbers.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <button mat-raised-button class="save round backButton" [disabled]="dialogForm.invalid" color="primary" (click)="saveFlight()">
+          Save
+        </button>
+
+      </div>
+      </div>
+
+
+</mat-card>
+
+</form>
+

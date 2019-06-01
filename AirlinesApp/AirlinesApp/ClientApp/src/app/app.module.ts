@@ -20,6 +20,7 @@ import { FlightHistoryComponent } from './flight-history/flight-history.componen
 import { ManageFlightsComponent } from './manage-flights/manage-flights.component';
 import { AirlinesService } from './services/airlines.service';
 import { HistoryService } from './services/history.service';
+import { FlightService } from './services/flight.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { HistoryService } from './services/history.service';
     MatTableModule,
     MatSelectModule
   ],
-  providers: [AirlinesService, HistoryService],
+  providers: [AirlinesService, HistoryService, FlightService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

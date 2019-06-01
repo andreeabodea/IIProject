@@ -16,9 +16,6 @@ export class HistoryService extends BaseService {
   }
 
 
-  //airport, airline filter
-  //flight -> string name,Airplane airplane, Airport fromAirport, Airport toAirport, int duration
-
   public getHistory(searchParams: HistoryServiceSearchParameters) {
 
     let httpParams = new HttpParams()
