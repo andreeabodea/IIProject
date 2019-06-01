@@ -36,6 +36,7 @@
     <None Remove="ClientApp\src\app\manage-flights\flight.class.ts" />
     <None Remove="ClientApp\src\app\services\airlines.service.ts" />
     <None Remove="ClientApp\src\app\services\base.service.ts" />
+    <None Remove="ClientApp\src\app\services\dialog.service.ts" />
     <None Remove="ClientApp\src\app\services\flight.service.ts" />
     <None Remove="ClientApp\src\app\services\history-search-params.class.ts" />
     <None Remove="ClientApp\src\app\services\history.service.ts" />
@@ -51,6 +52,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\manage-flights\flight.class.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\base.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\airlines.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\dialog.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\flight.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\history-search-params.class.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\history.service.ts" />

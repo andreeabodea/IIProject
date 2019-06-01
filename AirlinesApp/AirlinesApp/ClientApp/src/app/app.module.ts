@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 
-import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatIconModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +21,8 @@ import { ManageFlightsComponent } from './manage-flights/manage-flights.componen
 import { AirlinesService } from './services/airlines.service';
 import { HistoryService } from './services/history.service';
 import { FlightService } from './services/flight.service';
+import { DialogService } from './services/dialog.service';
+import { MessageBoxComponent } from './message-box/message-box.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { FlightService } from './services/flight.service';
     AppNavigationComponent,
     AirlinesDetailsComponent,
     FlightHistoryComponent,
-    ManageFlightsComponent
+    ManageFlightsComponent,
+    MessageBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +48,12 @@ import { FlightService } from './services/flight.service';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatIconModule
   ],
-  providers: [AirlinesService, HistoryService, FlightService],
+  entryComponents: [MessageBoxComponent],
+  providers: [AirlinesService, HistoryService, FlightService, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

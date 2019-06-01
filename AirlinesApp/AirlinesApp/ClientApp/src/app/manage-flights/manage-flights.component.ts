@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FlightService } from '../services/flight.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Flight } from '../manage-flights/flight.class';
+import { DialogService } from '../services/dialog.service';
 
 @Component({
   selector: 'app-manage-flights',
@@ -15,7 +16,8 @@ export class ManageFlightsComponent implements OnInit {
 
 
   constructor(private flightService: FlightService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private dialogService: DialogService) {
 
     let controlSet = {
       toairports: ['', [Validators.required]],
@@ -46,8 +48,15 @@ export class ManageFlightsComponent implements OnInit {
       this.dialogForm.controls.flightDuration.value,
       this.dialogForm.controls.flightName.value
     );
-    this.flightService.saveFlight(flight);
-
+ 
+    this.flightService.saveFlight(flight).subscribe(
+      result => {
+        this.dialogService.showMessageBox("Succes", "The data was succesfully saved.");
+      },
+      errors => {
+        this.dialogService.showErrorMessageBox("An error occured while saving the data. Please verify the data you entered.");
+      }
+    );
 
   }
 
