@@ -21,6 +21,7 @@ namespace AirlinesApp.Controllers
 
         [HttpGet]
         [Route("airlines")]
+        [Authorize(Policy = "Admin")]
         public IActionResult GetAirlines() 
         {
             try

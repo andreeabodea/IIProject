@@ -154,9 +154,9 @@ namespace AirlinesApp.Db
             return appDbContext.Flights.Add(new Flight { Name = name, Airplane = airplane, FromAirport = fromAirport, ToAirport = toAirport, Duration = duration }).Entity;
         }
 
-        private User AddUserToDbContext(string username, string password)
+        private User AddUserToDbContext(string userid)
         {
-            return appDbContext.Users.Add(new User { UserName = username,  Password= password }).Entity;
+            return appDbContext.User.Add(new User {  UserId= userid , IsAdmin=true, IsEnabled=true}).Entity;
         }
 
     }

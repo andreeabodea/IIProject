@@ -112,13 +112,15 @@ namespace AirlinesApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Password");
+                    b.Property<bool>("IsAdmin");
 
-                    b.Property<string>("UserName");
+                    b.Property<bool>("IsEnabled");
+
+                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("AirlinesApp.Domain.Airplane", b =>

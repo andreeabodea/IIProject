@@ -1,10 +1,11 @@
-import { RestCallHeaders } from './restCallHeaders.class';
+import { RestCallHeaders } from './services/restCallHeaders.class';
 import { Observable, throwError } from 'rxjs';
 
 export abstract class BaseService {
   protected restCallHeaders: RestCallHeaders;
   public static UnauthErrorMessage: string = "Unauthorized access. Maybe the session has expired. Please log in again.";
   public static ForbiddenErrorMessage: string = "Forbidden operation was attempted.";
+  public static PayloadTooLargeErrorMessage: string = "Downloaded file is too big.";
 
   constructor() {
     this.restCallHeaders = new RestCallHeaders();
@@ -22,7 +23,10 @@ export abstract class BaseService {
     }
 
     var modelStateErrors: string = '';
-    if (error.error) {
+
+    if (error.status === 413) {
+      modelStateErrors = BaseService.PayloadTooLargeErrorMessage;
+    } else if (error.error) {
       for (var key in error.error) {
         if (error.error[key]) {
           modelStateErrors += error.error[key] + '\n';

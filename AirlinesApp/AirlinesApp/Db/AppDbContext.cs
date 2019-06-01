@@ -15,7 +15,7 @@ namespace AirlinesApp.Db
 
         public DbSet<Flight> Flights { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
 
         public AppDbContext(DbContextOptions options): base(options) { }
 

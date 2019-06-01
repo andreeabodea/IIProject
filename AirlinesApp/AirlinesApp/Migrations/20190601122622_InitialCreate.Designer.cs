@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirlinesApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190427020752_InitialCreate")]
+    [Migration("20190601122622_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -114,13 +114,15 @@ namespace AirlinesApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Password");
+                    b.Property<bool>("IsAdmin");
 
-                    b.Property<string>("UserName");
+                    b.Property<bool>("IsEnabled");
+
+                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("AirlinesApp.Domain.Airplane", b =>

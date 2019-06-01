@@ -1,8 +1,11 @@
+using AirlinesApp.Controllers.AutorizationPolicy;
 using AirlinesApp.Db;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +38,23 @@ namespace AirlinesApp
                   b => b.MigrationsAssembly("AirlinesApp")));
 
             services.AddTransient<IDBSeeder, DBSeeder>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy =>
+                    policy.Requirements.Add(new RoleRequirement(true)));
+            });
+            services.AddScoped<IAuthorizationHandler, RoleHandler>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = IISDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = IISDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = IISDefaults.Negotiate;
+                options.DefaultForbidScheme = IISDefaults.AuthenticationScheme;
+            });
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

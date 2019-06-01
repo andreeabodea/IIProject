@@ -44,10 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\flight-history\flight-history.class.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\manage-flights\flight.class.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\base.service.ts" />
