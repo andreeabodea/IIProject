@@ -46,7 +46,7 @@ export class ManageFlightsComponent implements OnInit {
       this.dialogForm.controls.flightDuration.value,
       this.dialogForm.controls.flightName.value
     );
-
+    this.flightService.saveFlight(flight);
 
 
   }

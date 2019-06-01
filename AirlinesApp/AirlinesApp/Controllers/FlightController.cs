@@ -60,5 +60,33 @@ namespace AirlinesApp.Controllers
 
 
 
+        [HttpPost]
+        [Route("saveFlight")]
+        public IActionResult Save([FromBody]FlightDTO model)
+        {   
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+            Airplane airplane = appDbContext.Airplanes.Select(a => a).Where(a => a.Id == model.Airplane).FirstOrDefault();
+            Airport ato = appDbContext.Airports.Select(a => a).Where(a => a.Id == model.ToAirport).FirstOrDefault();
+            Airport afrom = appDbContext.Airports.Select(a => a).Where(a => a.Id == model.FromAirport).FirstOrDefault();
+
+            Flight flight = new Flight { Duration = model.Duration, Name = model.Name, Airplane = airplane, ToAirport = ato, FromAirport = afrom };
+            appDbContext.Flights.Add(flight);
+            appDbContext.SaveChanges();
+
+            return Ok();  
+        }
     }
+
+
+
+
+
+
+
+
 }
+

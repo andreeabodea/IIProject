@@ -24,5 +24,13 @@ export class FlightService extends BaseService {
       .pipe(catchError(this.handleError));
   }
 
+  public saveFlight(flight): Observable<boolean> {
+    let body = JSON.stringify(flight);
+
+      return this.httpClient.post(this.baseUrl + "/saveFlight", body, { headers: this.headers })
+        .pipe(map(res => true),
+          catchError(this.handleError));
+    }
+
 }
 
