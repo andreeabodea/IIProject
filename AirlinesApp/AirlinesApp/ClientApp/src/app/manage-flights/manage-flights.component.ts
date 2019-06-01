@@ -33,10 +33,16 @@ export class ManageFlightsComponent implements OnInit {
   ngOnInit() {
     this.flightService.GetAirplanes().subscribe((airplanesParam: any) => {
       this.airplanesList = airplanesParam;
-    });
+    },
+      e => {
+        this.dialogService.showErrorMessageBox(e);
+      });
     this.flightService.getAirports().subscribe((airportsParam: any) => {
       this.airportsList = airportsParam;
-    });
+    },
+      e => {
+        this.dialogService.showErrorMessageBox(e);
+      });
   }
 
   saveFlight() {

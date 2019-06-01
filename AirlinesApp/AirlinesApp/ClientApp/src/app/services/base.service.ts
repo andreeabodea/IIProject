@@ -1,10 +1,10 @@
-import { RestCallHeaders } from './services/restCallHeaders.class';
+import { RestCallHeaders } from './restCallHeaders.class';
 import { Observable, throwError } from 'rxjs';
 
 export abstract class BaseService {
   protected restCallHeaders: RestCallHeaders;
   public static UnauthErrorMessage: string = "Unauthorized access. Maybe the session has expired. Please log in again.";
-  public static ForbiddenErrorMessage: string = "Forbidden operation was attempted.";
+  public static ForbiddenErrorMessage: string = "Forbidden operation was attempted.Please log in.";
   public static PayloadTooLargeErrorMessage: string = "Downloaded file is too big.";
 
   constructor() {

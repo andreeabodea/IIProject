@@ -1,5 +1,6 @@
 ﻿using AirlinesApp.Db;
 using AirlinesApp.Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,7 @@ namespace AirlinesApp.Controllers
 
         [HttpGet]
         [Route("airportsList")]
+        [Authorize(Policy = "Admin")]
         public IActionResult GetAiports()
         {
             try
@@ -41,6 +43,7 @@ namespace AirlinesApp.Controllers
 
         [HttpGet]
         [Route("airlinesList")]
+        [Authorize(Policy = "Admin")]
         public IActionResult GetAirlines()
         {
             try
@@ -58,10 +61,9 @@ namespace AirlinesApp.Controllers
             }
         }
 
-
-
         [HttpGet]
         [Route("historyList")]
+        [Authorize(Policy = "Admin")]
         public IActionResult GetFlights()
         {
             try

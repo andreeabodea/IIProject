@@ -19,7 +19,10 @@ var BaseService = /** @class */ (function () {
             return rxjs_1.Observable.throw(applicationError);
         }
         var modelStateErrors = '';
-        if (error.error) {
+        if (error.status === 413) {
+            modelStateErrors = BaseService.PayloadTooLargeErrorMessage;
+        }
+        else if (error.error) {
             for (var key in error.error) {
                 if (error.error[key]) {
                     modelStateErrors += error.error[key] + '\n';
@@ -37,7 +40,8 @@ var BaseService = /** @class */ (function () {
         return rxjs_1.throwError(modelStateErrors || 'Error while accessing the server. Please contact your system administrator.');
     };
     BaseService.UnauthErrorMessage = "Unauthorized access. Maybe the session has expired. Please log in again.";
-    BaseService.ForbiddenErrorMessage = "Forbidden operation was attempted.";
+    BaseService.ForbiddenErrorMessage = "Forbidden operation was attempted.Please log in.";
+    BaseService.PayloadTooLargeErrorMessage = "Downloaded file is too big.";
     return BaseService;
 }());
 exports.BaseService = BaseService;

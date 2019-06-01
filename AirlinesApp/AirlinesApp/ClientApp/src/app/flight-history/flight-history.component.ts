@@ -3,6 +3,7 @@ import { HistoryService } from '../services/history.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { HistoryServiceSearchParameters } from '../services/history-search-params.class';
 import { FlightHistory } from './flight-history.class';
+import { DialogService } from '../services/dialog.service';
 
 @Component({
   selector: 'app-flight-history',
@@ -17,7 +18,8 @@ export class FlightHistoryComponent implements OnInit {
   public columnsToDisplay = ['name', 'duration', 'airplane', 'fromAirport', 'toAirport'];
 
   constructor(private historyService: HistoryService,
-              private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private dialogService: DialogService) {
     let controlSet = {
       airports: ['', [Validators.required]],
       airlines: ['', [Validators.required]]
@@ -28,10 +30,16 @@ export class FlightHistoryComponent implements OnInit {
   ngOnInit() {
     this.historyService.getAirlines().subscribe((airlinesParam: any) => {
       this.airlinesList = airlinesParam;
-    });
+    },
+      e => {
+        this.dialogService.showErrorMessageBox(e);
+      });
     this.historyService.getAirports().subscribe((airportsParam: any) => {
       this.airportsList = airportsParam;
-    });
+    },
+      e => {
+        this.dialogService.showErrorMessageBox(e);
+      });
   }
 
   search() {
@@ -43,7 +51,10 @@ export class FlightHistoryComponent implements OnInit {
 
     this.historyService.getHistory(searchParams).subscribe((flightHistoryParam: FlightHistory) => {
       this.flightHistory = flightHistoryParam;
-    });
+    },
+      e => {
+        this.dialogService.showErrorMessageBox(e);
+      });
     
   }
 

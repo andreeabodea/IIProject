@@ -1,5 +1,6 @@
 ﻿using AirlinesApp.Db;
 using AirlinesApp.Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,6 +23,7 @@ namespace AirlinesApp.Controllers
 
         [HttpGet]
         [Route("airportsListFlight")]
+        [Authorize(Policy = "Admin")]
         public IActionResult GetAiports()
         {
             try
@@ -41,6 +43,7 @@ namespace AirlinesApp.Controllers
 
         [HttpGet]
         [Route("airplanesListFlight")]
+        [Authorize(Policy = "Admin")]
         public IActionResult GetAirplanes()
         {
             try
@@ -62,6 +65,7 @@ namespace AirlinesApp.Controllers
 
         [HttpPost]
         [Route("saveFlight")]
+        [Authorize(Policy = "Admin")]
         public IActionResult Save([FromBody]FlightDTO model)
         {   
                 if (!ModelState.IsValid)
