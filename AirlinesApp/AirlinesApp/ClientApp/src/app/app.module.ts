@@ -27,6 +27,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserUpsertComponent } from './user-upsert/user-upsert.component';
 import { AddUserComponent } from './users-list/users.add.user.component';
 import { UsersService } from './services/users.service';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { UsersService } from './services/users.service';
     MessageBoxComponent,
     UsersListComponent,
     UserUpsertComponent,
-    AddUserComponent
+    AddUserComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

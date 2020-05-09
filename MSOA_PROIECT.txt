@@ -1,0 +1,11 @@
+5 pagini html - DA
+3 imagini
+fisiere css - DA
+meniu sau validare formular - DA
+DB cu 3 tabele - DA
+
+pagini web create dinamic,selectare din DB: comandă SQL de selectare combinată,din 2 tabele - DA
+
+inserare in db, din formular - DA
+
+lucru cu sesiuni, sau AJAX, sau Node.js - DA
